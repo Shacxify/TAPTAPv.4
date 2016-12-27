@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using Unity.UI;
+using UnityEngine.UI;
 
 public class buttonDirection : MonoBehaviour {
 
