@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Unity.UI;
 
 public class buttonDirection : MonoBehaviour {
+
 
 	// Use this for initialization
 	public void onClick () {
