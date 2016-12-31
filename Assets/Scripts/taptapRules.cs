@@ -23,9 +23,6 @@ public class taptapRules : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		//Countdown to Start
-		//text number = countDown(timeTill);
-		counter.GetComponent<Text>().text = countDown(timeTill);
 
 		//Determines whos winning
 		if (pBarW.transform.position.y <= 0) {
@@ -55,9 +52,12 @@ public class taptapRules : MonoBehaviour {
 	}
 
 	public string countDown (int fromNum) {
-		double currentNum = fromNum - Time.deltaTime;
-		int finalOutput = (int)currentNum;
-		Debug.Log(finalOutput);
-		return finalOutput.ToString();
+		int finalOutput = 1;
+		while (finalOutput != 0) {
+			double currentNum = fromNum - Time.deltaTime;
+			finalOutput = (int)currentNum;
+			Debug.Log(finalOutput);
+			return finalOutput.ToString();
+		}
 	}
 }
