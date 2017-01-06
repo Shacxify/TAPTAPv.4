@@ -19,7 +19,8 @@ public class taptapRules : MonoBehaviour {
 
 		counter = GameObject.Find("Canvas/counter");
 		gameOver = false;
-	}
+		counter.GetComponent<Text>().text = countDown(timeTill);
+		}
 
 	// Update is called once per frame
 	void Update () {
@@ -52,12 +53,10 @@ public class taptapRules : MonoBehaviour {
 	}
 
 	public string countDown (int fromNum) {
-		int finalOutput = 1;
-		while (finalOutput != 0) {
+		while (fromNum != 0) {
 			double currentNum = fromNum - Time.deltaTime;
-			finalOutput = (int)currentNum;
-			Debug.Log(finalOutput);
-			return finalOutput.ToString();
+			return currentNum.ToString();
 		}
+		return "";
 	}
 }

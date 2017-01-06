@@ -49,6 +49,7 @@
      <Compile Include="Assets\Scripts\buttonDirection.cs" />
      <Compile Include="Assets\Scripts\screenOrientation.cs" />
      <Compile Include="Assets\Scripts\taptapRules.cs" />
+     <Compile Include="Assets\Scripts\towRules.cs" />
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
