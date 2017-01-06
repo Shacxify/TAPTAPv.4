@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class towRules : MonoBehaviour {
 
 	public GameObject white, black;
-
+	public int speed;
 	// Use this for initialization
 	void Start () {
 		white = GameObject.Find("Canvas/white");
@@ -20,7 +20,7 @@ public class towRules : MonoBehaviour {
 			Debug.Log("OO OO");
 		}
 		if (gameObject.name == "white") {
-			Debug.Log("AA AA");
+			gameObject.translate.Transform(new );
 		}
 	}
 }
