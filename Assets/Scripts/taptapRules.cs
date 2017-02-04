@@ -7,6 +7,7 @@ public class taptapRules : MonoBehaviour {
 	public Button whiteB, blackB;
 	public GameObject pBarW, pBarB, counter;
 	public int clickGoal = 0, blackTap, whiteTap, timeTill = 3;
+	//public float speed = .5f;
 	public string winner;
 	public bool gameOver;
 
@@ -40,9 +41,9 @@ public class taptapRules : MonoBehaviour {
 		//Determining Factor
 		if (gameOver != true) {
 			if (gameObject.name == "white") {
-				pBarW.transform.Translate(0, -1, 0);
+				pBarW.transform.Translate(0, -0.5f, 0);
 			} else if (gameObject.name == "black") {
-				pBarB.transform.Translate(0, 1, 0);
+				pBarB.transform.Translate(0, 0.5f, 0);
 			}
 		}
 	}
@@ -53,7 +54,7 @@ public class taptapRules : MonoBehaviour {
 	}
 
 	public string countDown (int fromNum) {
-		while (fromNum != 0) {
+		if (fromNum != 0) {
 			double currentNum = fromNum - Time.deltaTime;
 			return currentNum.ToString();
 		}
