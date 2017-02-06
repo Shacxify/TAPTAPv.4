@@ -1,42 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
 public class readyUp : MonoBehaviour {
 
-	public GameObject wFL, wFR, bFL, bFR;
-	public int totalClicks;
-	public string chosenGM;
-	public bool clickedWL = false, clickedWR = false,
-							clickedBL = false, clickedBR = false;
+	public bool readyw1;
+	public bool readyw2;
+	public bool readyb1;
+	public bool readyb2;
+	public Animator anim;
+
+	public void Update () {
+		anim = GameObject.Find("Canvas").GetComponent<Animator>();
+		readyw1 = GameObject.Find("fingerPrints/wPrintL").GetComponent<askReadyUp>().ready;
+		readyw2 = GameObject.Find("fingerPrints/wPrintR").GetComponent<askReadyUp>().ready;
+		readyb1 = GameObject.Find("fingerPrints/bPrintL").GetComponent<askReadyUp>().ready;
+		readyb2 = GameObject.Find("fingerPrints/bPrintR").GetComponent<askReadyUp>().ready;
 
 
-	void Start () {
-		wFL = GameObject.Find("Canvas/fingerPrints/wPrintL");
-		wFR = GameObject.Find("Canvas/fingerPrints/wPrintR");
-		bFL = GameObject.Find("Canvas/fingerPrints/bPrintL");
-		bFR = GameObject.Find("Canvas/fingerPrints/bPrintR");
-	}
 
-	public void onClick () {
-
-	}
-
-	void Update () {
-		if (totalClicks != 4) {
-			if (clickedWL == true) {
-				totalClicks =+ 1;
-			} else if (clickedWR == true) {
-				totalClicks =+ 1;
-			} else if (clickedBL == true) {
-				totalClicks =+ 1;
-			} else if (clickedBR == true) {
-				totalClicks =+ 1;
+		if (readyw1 == true && readyw2 == true && readyb1 == true && readyb2 == true) {
+			anim.SetBool("ready", true);
+			if (anim.GetCurrentAnimatorStateInfo(0).IsName("outReadyUp") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
+				if (GameObject.Find("/constant").GetComponent<gameMode>().game == 1) {
+					Application.LoadLevel("TAPTAP");
+				} else if (GameObject.Find("/constant").GetComponent<gameMode>().game == null) {
+					Application.LoadLevel("TAPTAP");
+				}
 			}
-		}
 
-		if (totalClicks == 4) {
-			Application.LoadLevel(chosenGM);
 		}
 	}
 }
