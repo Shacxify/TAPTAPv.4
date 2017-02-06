@@ -17,7 +17,7 @@ public class towRules : MonoBehaviour {
 	}
 
 	void Update () {
-		//checkWin();
+		checkWin();
 	}
 
 	public void toMove() {
