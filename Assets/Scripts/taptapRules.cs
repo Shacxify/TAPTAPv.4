@@ -20,7 +20,7 @@ public class taptapRules : MonoBehaviour {
 
 		counter = GameObject.Find("Canvas/counter");
 		gameOver = false;
-		counter.GetComponent<Text>().text = countDown(timeTill);
+		//counter.GetComponent<Text>().text = countDown(timeTill);
 		}
 
 	// Update is called once per frame
