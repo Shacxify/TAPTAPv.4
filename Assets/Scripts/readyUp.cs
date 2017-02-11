@@ -23,7 +23,7 @@ public class readyUp : MonoBehaviour {
 			if (anim.GetCurrentAnimatorStateInfo(0).IsName("outReadyUp") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
 				if (GameObject.Find("/constant").GetComponent<gameMode>().game == 1) {
 					Application.LoadLevel("TAPTAP");
-				} else if (GameObject.Find("/constant").GetComponent<gameMode>().game == null) {
+				} else if (GameObject.Find("/constant").GetComponent<gameMode>().game == 0) {
 					Application.LoadLevel("TAPTAP");
 				}
 			}
