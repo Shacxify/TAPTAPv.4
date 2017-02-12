@@ -32,7 +32,6 @@ public class buttonDirection : MonoBehaviour {
 
 	public void onClick () {
 
-
 		if (gameObject.name == "settings") {
 			Application.LoadLevel("settings");
 		} else if (gameObject.name == "play") {
@@ -44,7 +43,10 @@ public class buttonDirection : MonoBehaviour {
 			gm = GameObject.Find("/constant").GetComponent<gameMode>();
 			anim.SetInteger("sceneChoice", 1);
 			gm.game = 1;
+		} else if (gameObject.name == "restartW" || gameObject.name == "restartB") {
+			Application.LoadLevel("TAPTAP");
 		}
+
 	}
 
 }

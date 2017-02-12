@@ -10,6 +10,8 @@ public class taptapRules : MonoBehaviour {
 	//public float speed = .5f;
 	public string winner;
 	public bool gameOver;
+	public Animator anim;
+	public GameObject constant;
 
 	// Use this for initialization
 	void Start () {
@@ -17,9 +19,12 @@ public class taptapRules : MonoBehaviour {
 		blackB = GameObject.Find("Canvas/black").GetComponent<Button>();
 		pBarW = GameObject.Find("finishLines/whiteP");
 		pBarB = GameObject.Find("finishLines/blackP");
+		constant = GameObject.Find("constant");
 
 		counter = GameObject.Find("Canvas/counter");
 		gameOver = false;
+		anim = GameObject.Find("Canvas").GetComponent<Animator>();
+		Destroy(constant);
 		//counter.GetComponent<Text>().text = countDown(timeTill);
 		}
 
@@ -27,12 +32,14 @@ public class taptapRules : MonoBehaviour {
 	void Update () {
 
 		//Determines whos winning
-		if (pBarW.transform.position.y <= 0) {
-			winner = pBarW.name;
-			finish(winner);
-		} else if (pBarB.transform.position.y >= 0) {
-			winner = pBarB.name;
-			finish(winner);
+		if (pBarW != null && pBarB != null) {
+			if (pBarW.transform.position.y <= 0) {
+				winner = pBarW.name;
+				finish(winner);
+			} else if (pBarB.transform.position.y >= 0) {
+				winner = pBarB.name;
+				finish(winner);
+			}
 		}
 	}
 
@@ -46,10 +53,24 @@ public class taptapRules : MonoBehaviour {
 				pBarB.transform.Translate(0, 0.5f, 0);
 			}
 		}
+
+		if (gameOver == true) {
+			if (anim.GetCurrentAnimatorStateInfo(0).IsName("blackWin") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f || anim.GetCurrentAnimatorStateInfo(0).IsName("whiteWin") &&
+					anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f ) {
+							Application.LoadLevel("mainMenu");
+			}
+		}
 	}
 
 	public string finish (string winName) {
 		gameOver = true;
+		pBarW.SetActive(false);
+		pBarB.SetActive(false);
+		if (winName == pBarW.name) {
+			anim.SetInteger("winner", 1);
+		} else if (winName == pBarB.name) {
+			anim.SetInteger("winner", 2);
+		}
 		return winName;
 	}
 
