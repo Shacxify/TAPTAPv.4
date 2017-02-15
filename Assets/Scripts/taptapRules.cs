@@ -25,12 +25,11 @@ public class taptapRules : MonoBehaviour {
 		gameOver = false;
 		anim = GameObject.Find("Canvas").GetComponent<Animator>();
 		Destroy(constant);
-		//counter.GetComponent<Text>().text = countDown(timeTill);
+
 		}
 
 	// Update is called once per frame
 	void Update () {
-
 		//Determines whos winning
 		if (pBarW != null && pBarB != null) {
 			if (pBarW.transform.position.y <= 0) {
@@ -72,13 +71,5 @@ public class taptapRules : MonoBehaviour {
 			anim.SetInteger("winner", 2);
 		}
 		return winName;
-	}
-
-	public string countDown (int fromNum) {
-		if (fromNum != 0) {
-			double currentNum = fromNum - Time.deltaTime;
-			return currentNum.ToString();
-		}
-		return "";
 	}
 }
