@@ -23,7 +23,7 @@ public class countDown : MonoBehaviour {
 		anim.SetInteger("countNum", currentNum);
 		if ( currentNum <= 0 ) {
 				Destroy(one); Destroy(two); Destroy(three);
-				hasStarted = false;
+				hasStarted = true;
 		}
 	}
 }

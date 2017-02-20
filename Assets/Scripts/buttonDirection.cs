@@ -47,7 +47,7 @@ public class buttonDirection : MonoBehaviour {
 			anim.SetInteger("sceneChoice", 1);
 			gm.game = 1;
 		} else if (gameObject.name == "restartW" || gameObject.name == "restartB") {
-			Application.LoadLevel("TAPTAP");
+			Application.LoadLevel("readyUp");
 		}
 
 	}
