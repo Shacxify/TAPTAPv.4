@@ -8,6 +8,7 @@ public class countDown : MonoBehaviour {
 	public float fromNum;
 	public Animator anim;
 	public GameObject one, two , three;
+	public bool hasStarted = false;
 
 	void Awake () {
 			anim = GetComponent<Animator>();
@@ -22,10 +23,7 @@ public class countDown : MonoBehaviour {
 		anim.SetInteger("countNum", currentNum);
 		if ( currentNum <= 0 ) {
 				Destroy(one); Destroy(two); Destroy(three);
-				gameObject.GetComponent<Text>().text = "";
-		} else {
-			string output = currentNum.ToString();
-			gameObject.GetComponent<Text>().text = output;
+				hasStarted = false;
 		}
 	}
 }

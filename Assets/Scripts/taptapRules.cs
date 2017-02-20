@@ -9,7 +9,7 @@ public class taptapRules : MonoBehaviour {
 	public int clickGoal = 0, blackTap, whiteTap, timeTill = 3;
 	//public float speed = .5f;
 	public string winner;
-	public bool gameOver;
+	public bool hasBegun, gameOver;
 	public Animator anim;
 	public GameObject constant;
 
@@ -23,6 +23,7 @@ public class taptapRules : MonoBehaviour {
 
 		counter = GameObject.Find("Canvas/counter");
 		gameOver = false;
+		hasBegun = false;
 		anim = GameObject.Find("Canvas").GetComponent<Animator>();
 		Destroy(constant);
 
@@ -31,6 +32,7 @@ public class taptapRules : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Determines whos winning
+		hasBegun = counter.GetComponent<countDown>().hasStarted;
 		if (pBarW != null && pBarB != null) {
 			if (pBarW.transform.position.y <= 0) {
 				winner = pBarW.name;
@@ -45,15 +47,15 @@ public class taptapRules : MonoBehaviour {
 	public void onClick () {
 		//pBarW goes down (Left); pBarB goes up (Left);
 		//Determining Factor
-		if (gameOver != true) {
+		if (gameOver != true && hasBegun == true) {
 			if (gameObject.name == "white") {
 				pBarW.transform.Translate(0, -0.5f, 0);
-			} else if (gameObject.name == "black") {
+			} else if (gameObject.name == "black" && hasBegun == true) {
 				pBarB.transform.Translate(0, 0.5f, 0);
 			}
 		}
 
-		if (gameOver == true) {
+		if (gameOver == true && hasBegun == true) {
 			if (anim.GetCurrentAnimatorStateInfo(0).IsName("blackWin") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f || anim.GetCurrentAnimatorStateInfo(0).IsName("whiteWin") &&
 					anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f ) {
 							Application.LoadLevel("mainMenu");
