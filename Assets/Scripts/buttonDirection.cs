@@ -14,11 +14,11 @@ public class buttonDirection : MonoBehaviour {
 			if (anim.GetCurrentAnimatorStateInfo(0).IsName("reverseToSelect") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
 				Application.LoadLevel("readyUp");
 			}
-		} else if (Application.loadedLevelName == "menu") {
+		} /*else if (Application.loadedLevelName == "menu") {
 			if (anim.GetCurrentAnimatorStateInfo(0).IsName("outStart1") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f || anim.GetCurrentAnimatorStateInfo(0).IsName("outStart2") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f ) {
 				Application.LoadLevel("mainMenu");
 			}
-		}
+		}*/
 	}
 
 	void Awake () {
@@ -39,8 +39,9 @@ public class buttonDirection : MonoBehaviour {
 			Application.LoadLevel("settings");
 		} else if (gameObject.name == "play") {
 			anim.SetBool("start", true);
-			if (anim.GetCurrentAnimatorStateInfo(0).IsName("startScreen")) {
+			if (anim.GetCurrentAnimatorStateInfo(0).IsName("outStart")) {
 				anim.speed = 2;
+				Application.LoadLevel("mainMenu");
 			}
 		} else if (gameObject.name == "TAPTAP") {
 			gm = GameObject.Find("/constant").GetComponent<gameMode>();
