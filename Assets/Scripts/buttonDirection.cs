@@ -25,7 +25,7 @@ public class buttonDirection : MonoBehaviour {
 		if (Application.loadedLevelName == "mainMenu") {
 			anim = GameObject.Find("/bg").GetComponent<Animator>();
 		} else if (Application.loadedLevelName == "menu") {
-			anim = GameObject.Find("/bg").GetComponent<Animator>();
+			anim = GameObject.Find("Canvas/bg").GetComponent<Animator>();
 		} else if (Application.loadedLevelName == "TAPTAP") {
 			//anim = GameObject.Find
 		} else {

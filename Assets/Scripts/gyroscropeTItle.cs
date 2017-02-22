@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class gyroscropeTItle : MonoBehaviour {
+public class gyroscropeTitle : MonoBehaviour {
 
 	public Gyroscope gyro;
-	public GameObject bg;
+	public GameObject bothSides;
+	public Animator anim;
 
 	// Use this for initialization
 	void Start () {
-		bg = GameObject.Find("bg/both");
+		anim = GameObject.Find("bg").GetComponent<Animator>();
+		bothSides = GameObject.Find("bg/both");
 		if (SystemInfo.supportsGyroscope) {
 				gyro = Input.gyro;
     		gyro.enabled = true;
@@ -18,7 +20,10 @@ public class gyroscropeTItle : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		transform.rotation = Quaternion.Euler(0, 0, Input.gyro.attitude.z);
-		Debug.Log(Input.gyro.attitude);
+		if (anim.GetCurrentAnimatorStateInfo(0).IsName("idleStart")
+				&& anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.1f) {
+			bothSides.transform.rotation = Quaternion.Euler(0, 0, /*gyro.attitude.z*/ 90);
+		}
+		//Debug.Log(gyro.attitude);
 	}
 }

@@ -27,18 +27,11 @@ public class taptapRules : MonoBehaviour {
 		hasBegun = false;
 		anim = GameObject.Find("Canvas").GetComponent<Animator>();
 		Destroy(constant);
-
-		if (SystemInfo.supportsGyroscope) {
-             gyro = Input.gyro;
-             gyro.enabled = true;
-         }
-
 		}
 
 	// Update is called once per frame
 	void Update () {
 		//Determines whos winning
-		Debug.Log(Input.gyro.attitude);
 		hasBegun = counter.GetComponent<countDown>().hasStarted;
 		if (pBarW != null && pBarB != null) {
 			if (pBarW.transform.position.y <= 0) {
