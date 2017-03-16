@@ -14,11 +14,7 @@ public class buttonDirection : MonoBehaviour {
 			if (anim.GetCurrentAnimatorStateInfo(0).IsName("reverseToSelect") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
 				Application.LoadLevel("readyUp");
 			}
-		} /*else if (Application.loadedLevelName == "menu") {
-			if (anim.GetCurrentAnimatorStateInfo(0).IsName("outStart1") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f || anim.GetCurrentAnimatorStateInfo(0).IsName("outStart2") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f ) {
-				Application.LoadLevel("mainMenu");
-			}
-		}*/
+		}
 	}
 
 	void Awake () {
