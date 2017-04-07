@@ -10,15 +10,11 @@ public class buttonDirection : MonoBehaviour {
 
 	// Use this for initialization
 	void Update () {
-
-		if (Application.loadedLevelName == "menu" && anim.GetCurrentAnimatorStateInfo(0).IsName("outStart")) {
-			if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1) {
-					Application.LoadLevel("mainMenu");
-					Debug.Log("LMAO");
+		if (Application.loadedLevelName == "mainMenu") {
+			if (anim.GetCurrentAnimatorStateInfo(0).IsName("reverseToSelect") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f) {
+				Application.LoadLevel("readyUp");
 			}
 		}
-
-
 	}
 
 	void Awake () {
@@ -39,16 +35,14 @@ public class buttonDirection : MonoBehaviour {
 			Application.LoadLevel("settings");
 		} else if (gameObject.name == "play") {
 			anim.SetBool("start", true);
+			if (anim.GetCurrentAnimatorStateInfo(0).IsName("outStart")) {
+				anim.speed = 2;
+				Application.LoadLevel("mainMenu");
+			}
 		} else if (gameObject.name == "TAPTAP") {
 			gm = GameObject.Find("/constant").GetComponent<gameMode>();
 			anim.SetInteger("sceneChoice", 1);
 			gm.game = 1;
-			Application.LoadLevel("readyUp");
-		}	else if (gameObject.name == "TOW") {
-			gm = GameObject.Find("/constant").GetComponent<gameMode>();
-			anim.SetInteger("sceneChoice", 2);
-			gm.game = 2;
-			Application.LoadLevel("readyUp");
 		} else if (gameObject.name == "restartW" || gameObject.name == "restartB") {
 			Application.LoadLevel("readyUp");
 		}
