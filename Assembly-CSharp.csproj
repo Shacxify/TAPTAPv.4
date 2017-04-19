@@ -46,14 +46,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\askReadyUp.cs" />
-     <Compile Include="Assets\Scripts\buttonDirection.cs" />
-     <Compile Include="Assets\Scripts\countDown.cs" />
+     <Compile Include="Assets\Scripts\READYUP\askReadyUp.cs" />
+     <Compile Include="Assets\Scripts\READYUP\readyUp.cs" />
+     <Compile Include="Assets\Scripts\TAP\taptapRules.cs" />
+     <Compile Include="Assets\Scripts\TITLE\OLDbuttonDirection.cs" />
+     <Compile Include="Assets\Scripts\TITLE\buttonDirection.cs" />
+     <Compile Include="Assets\Scripts\TOW\towRules.cs" />
      <Compile Include="Assets\Scripts\gameMode.cs" />
-     <Compile Include="Assets\Scripts\gyroscropeTitle.cs" />
-     <Compile Include="Assets\Scripts\readyUp.cs" />
-     <Compile Include="Assets\Scripts\taptapRules.cs" />
-     <Compile Include="Assets\Scripts\towRules.cs" />
  <Reference Include="UnityEngine.Advertisements">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
  </Reference>
