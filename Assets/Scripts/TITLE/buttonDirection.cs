@@ -18,7 +18,7 @@ public class buttonDirection : MonoBehaviour {
 	void Update () {
 		//Loading Menu; Checking for "exit" animation to end.
 		if (anim.GetCurrentAnimatorStateInfo(0).IsName("exit")) {
-			if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime <= 1) {
+			if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1) {
 				Application.LoadLevel("2mainMenu");
 			}
 		}
