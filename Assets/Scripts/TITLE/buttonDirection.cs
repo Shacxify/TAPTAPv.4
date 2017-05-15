@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class buttonDirection : MonoBehaviour {
 
-	public gameMode gm;
+	//public gameMode gm;
 	public Animator anim;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+		//Assign the anim variable
 		if (Application.loadedLevelName == "1menu") {
 			anim = GameObject.Find("bg").GetComponent<Animator>();
+		} else if (Application.loadedLevelName == "2mainMenu") {
+			anim = GameObject.Find("Canvas").GetComponent<Animator>();
 		}
 	}
 
@@ -27,7 +30,15 @@ public class buttonDirection : MonoBehaviour {
 	public void onClick () {
 		if (gameObject.name == "play") {
 			anim.SetTrigger("go");
+		}
 
+		//Checking player chosen gamemode;
+		if (gameObject.name == "TAP") {
+			GameObject.Find("constant").GetComponent<gameMode>().game = 1;
+			anim.SetTrigger("gmSelected");
+		} else if (gameObject.name == "TOW") {
+			GameObject.Find("constant").GetComponent<gameMode>().game = 2;
+			anim.SetTrigger("gmSelected");
 		}
 	}
 }
