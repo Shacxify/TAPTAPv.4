@@ -9,7 +9,7 @@ public class taptapRules : MonoBehaviour {
 	public int clickGoal = 0, blackTap, whiteTap, timeTill = 3;
 	//public float speed = .5f;
 	public string winner;
-	public bool hasBegun, gameOver;
+	public bool gameOver;
 	public Animator anim;
 	public GameObject constant;
 	public Gyroscope gyro;
@@ -24,7 +24,6 @@ public class taptapRules : MonoBehaviour {
 
 		counter = GameObject.Find("Canvas/counter");
 		gameOver = false;
-		hasBegun = false;
 		anim = GameObject.Find("Canvas").GetComponent<Animator>();
 		Destroy(constant);
 		}
@@ -47,18 +46,19 @@ public class taptapRules : MonoBehaviour {
 	public void onClick () {
 		//pBarW goes down (Left); pBarB goes up (Left);
 		//Determining Factor
-		if (gameOver == false && hasBegun == true) {
+		if (gameOver == false) {
 			if (gameObject.name == "white") {
+				Debug.Log("YES");
 				pBarW.transform.Translate(0, -0.5f, 0);
-			} else if (gameObject.name == "black" && hasBegun == true) {
+			} else if (gameObject.name == "black") {
 				pBarB.transform.Translate(0, 0.5f, 0);
 			}
 		}
 
-		if (gameOver == true && hasBegun == true) {
-			if (anim.GetCurrentAnimatorStateInfo(0).IsName("blackWin") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f || anim.GetCurrentAnimatorStateInfo(0).IsName("whiteWin") &&
-					anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f ) {
-							Application.LoadLevel("mainMenu");
+		if (gameOver == true) {
+			if (anim.GetCurrentAnimatorStateInfo(0).IsName("blackWin") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f
+			 		|| anim.GetCurrentAnimatorStateInfo(0).IsName("whiteWin") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f ) {
+					Application.LoadLevel("mainMenu");
 			}
 		}
 	}

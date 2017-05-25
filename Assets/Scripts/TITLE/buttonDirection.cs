@@ -20,9 +20,17 @@ public class buttonDirection : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Loading Menu; Checking for "exit" animation to end.
-		if (anim.GetCurrentAnimatorStateInfo(0).IsName("exit")) {
-			if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1) {
-				Application.LoadLevel("2mainMenu");
+		if (Application.loadedLevelName == "1menu") {
+			if (anim.GetCurrentAnimatorStateInfo(0).IsName("exit")) {
+				if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1) {
+					Application.LoadLevel("2mainMenu");
+				}
+			}
+		} else if (Application.loadedLevelName == "2mainMenu") {
+			if (anim.GetCurrentAnimatorStateInfo(0).IsName("slideIn")) {
+				if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1) {
+					Application.LoadLevel("3readyUp");
+				}
 			}
 		}
 	}
@@ -31,8 +39,13 @@ public class buttonDirection : MonoBehaviour {
 		if (gameObject.name == "play") {
 			anim.SetTrigger("go");
 		}
-
 		//Checking player chosen gamemode;
+		if (gameObject.name == "restartB" || gameObject.name == "restartW") {
+				if (GameObject.Find("constant").GetComponent<gameMode>().game == 1) {
+					Application.LoadLevel("TAP");
+				}
+		}
+
 		if (gameObject.name == "TAP") {
 			GameObject.Find("constant").GetComponent<gameMode>().game = 1;
 			anim.SetTrigger("gmSelected");

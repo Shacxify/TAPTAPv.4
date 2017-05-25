@@ -1,7 +1,7 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{92A6BCD2-3A1E-F58B-1A79-5DEC24F7CB1E}") = "TAPTAPv.4", "Assembly-CSharp.csproj", "{AC088BFB-FE88-BA61-96AD-77E690DFBD93}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TAPTAPv.4", "Assembly-CSharp.csproj", "{AC088BFB-FE88-BA61-96AD-77E690DFBD93}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
