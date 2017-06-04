@@ -42,7 +42,7 @@ public class buttonDirection : MonoBehaviour {
 		//Checking player chosen gamemode;
 		if (gameObject.name == "restartB" || gameObject.name == "restartW") {
 				if (GameObject.Find("constant").GetComponent<gameMode>().game == 1) {
-					Application.LoadLevel("TAP");
+					Application.LoadLevel("TAPTAP");
 				}
 		}
 

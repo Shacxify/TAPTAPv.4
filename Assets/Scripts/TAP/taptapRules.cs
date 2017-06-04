@@ -25,7 +25,7 @@ public class taptapRules : MonoBehaviour {
 		counter = GameObject.Find("Canvas/counter");
 		gameOver = false;
 		anim = GameObject.Find("Canvas").GetComponent<Animator>();
-		Destroy(constant);
+		//Destroy(constant);
 		}
 
 	// Update is called once per frame
