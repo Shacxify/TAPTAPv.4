@@ -6,6 +6,7 @@ public class buttonDirection : MonoBehaviour {
 
 	//public gameMode gm;
 	public Animator anim;
+	public ads ads;
 
 	// Use this for initialization
 	void Awake () {
@@ -15,6 +16,8 @@ public class buttonDirection : MonoBehaviour {
 		} else if (Application.loadedLevelName == "2mainMenu") {
 			anim = GameObject.Find("Canvas").GetComponent<Animator>();
 		}
+
+		ads = GameObject.Find("Canvas").GetComponent<ads>();
 	}
 
 	// Update is called once per frame
@@ -43,6 +46,8 @@ public class buttonDirection : MonoBehaviour {
 		if (gameObject.name == "restartB" || gameObject.name == "restartW") {
 				if (GameObject.Find("constant").GetComponent<gameMode>().game == 1) {
 					Application.LoadLevel("TAPTAP");
+				} else {
+					Application.LoadLevel(Application.loadedLevel);
 				}
 		}
 
@@ -52,6 +57,14 @@ public class buttonDirection : MonoBehaviour {
 		} else if (gameObject.name == "TOW") {
 			GameObject.Find("constant").GetComponent<gameMode>().game = 2;
 			anim.SetTrigger("gmSelected");
+		}
+
+		if (gameObject.name == "back") {
+			float rando = Random.value;
+			if (rando >= .5f) {
+				ads.ShowAd();
+			}
+			Application.LoadLevel("2mainMenu");
 		}
 	}
 }

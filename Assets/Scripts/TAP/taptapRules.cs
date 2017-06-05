@@ -14,6 +14,7 @@ public class taptapRules : MonoBehaviour {
 	public GameObject constant;
 	public Gyroscope gyro;
 
+
 	// Use this for initialization
 	void Start () {
 		whiteB = GameObject.Find("Canvas/white").GetComponent<Button>();

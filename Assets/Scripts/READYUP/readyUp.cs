@@ -25,10 +25,12 @@ public class readyUp : MonoBehaviour {
 				if (GameObject.Find("/constant") != null) {
 					if (GameObject.Find("/constant").GetComponent<gameMode>().game == 1) {
 						Application.LoadLevel("TAPTAP");
-						} else if (GameObject.Find("/constant").GetComponent<gameMode>().game == 0 || GameObject.Find("/constant").GetComponent<gameMode>().game == null) {
+					} else if (GameObject.Find("/constant").GetComponent<gameMode>().game == 2) {
+						Application.LoadLevel("TOW");
+					} else if (GameObject.Find("/constant").GetComponent<gameMode>().game == 0 || GameObject.Find("/constant").GetComponent<gameMode>().game == null) {
 							Application.LoadLevel("TAPTAP");
-						}
-					} else {
+					}
+				} else {
 						Application.LoadLevel("TAPTAP");
 					}
 				}
